@@ -68,9 +68,9 @@ Instead of an array, where all element can be accessed at any time (given you pr
 
 It's possible to define the core operations for stacks as the following:
 
-* peek returns the value stored at the stack's top
-* push adds an element at the top of the stack
-* pop removes the element at the top and returns it 
+* Peek returns the value stored at the stack's top
+* Push adds an element at the top of the stack
+* Pop removes the element at the top and returns it 
 
 Stacks can be implemented with different structures, like an array or a linkedList, for example, but for the user (or client), it really doesn't matter what implementation is choosen, since the FILO principle is followed.
 
@@ -81,10 +81,22 @@ Because of their access restriction the time complexity for operations mentioned
 
 
 ### Queues
-Queues are another data structures that can be used more as a tool than a storage system. They are similar to stacks in the fact they provide a access restriction to their elements. Stacks follow the FILO principle, but queues follow the FIFO (first-in, first-out) principle, very much like queues in real life. To acomplish this queues must track the front and back elements.
+Queues are another data structures that can be used more as a tool than a storage system. They are similar to stacks in the fact they provide a access restriction to their elements. Stacks follow the FILO principle, but queues follow the FIFO (first-in, first-out) principle, very much like queues in real life. To acomplish this queues must track the front and back elements and these variables are usually called `front` and `rear`.
 
-Like stacks queues can be implemented using a variety of data-structures. 
+Like stacks queues can be implemented using a variety of data-structures.
 
+Common operations for queues are as follow:
+* Insert a new element at the rear position
+* Remove an element at the front position
+* Peek to return the value at the front position
+
+Again, like stacks, the access restriction allows for extremely fast operations in constant time:
+* Insert: O(1)
+* Remove: O(1)
+* Peek: O(1)
+
+
+### 
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
