@@ -31,7 +31,12 @@ To delete an item you need to search it first, so you can describe like:
 To insert an item you only need one operation, as it'll be inserted at the array's end. This is contant time:
 * Insertion in unordered array: O(1)
 
-Of course, this example doesn't consider factors like duplicate values, null values etc, but demonstrates the strategies for analysing algorithms. 
+Of course, this example doesn't consider factors like duplicate values, null values etc, but demonstrates the strategies for analysing algorithms.
+
+Here's an image from the book that displays a graph of different time complexities:
+
+![alt text](images/big-o-graph.png)
+
 
 ## Sorting
 Sorting is the process of organizing and ordering a collection of data based on a condition, like a key value (1, 2, 3...) or alphabetical order (a, b, c...), for example. The topic of sorting is extremely important because they can severely impact perfomance and lots of sorting strategies exist. Initially, for begginers it's nice to study the simpler ones.
@@ -91,6 +96,9 @@ Because of their access restriction the time complexity for operations mentioned
 * Insertion on stack: O(1)
 * Deletion from stack: O(1)
 
+The following image ilustrates how these operations work:
+
+![alt text](images/stack.png)
 
 ### Queues
 Queues are another data structures that can be used more as a tool than a storage system. They are similar to stacks in the fact they provide a access restriction to their elements. Stacks follow the FILO principle, but queues follow the FIFO (first-in, first-out) principle, very much like queues in real life. To acomplish this queues must track the front and back elements and these variables are usually called `front` and `rear`.
@@ -107,6 +115,10 @@ Again, like stacks, the access restriction allows for extremely fast operations 
 * Remove: O(1)
 * Peek: O(1)
 
+The following image represents the operations done in a queue:
+
+![alt text](images/queue.png)
+
 One thing to notice it that when you implement a queue using an array you don't really move the items around, like when queue and dequeue elements you just move the rear and front variables to point to different elements. This is because moving the item would require copying, deleting and adding them to another array, which would require extra time O(n) and operations, while moving the pointers of rear and front is O(1).
 
 ### Deques
@@ -117,7 +129,28 @@ Priority queues are normal queues with a front and rear, but one caviat, the ite
 
 The advantage here is clear, you can assign elements a value and they will called for execution based on they level of priority.
 
-Usually you want a quick insertion with priority queues and they are often implemented with using a heap, another data structure.
+Usually you want a quick insertion with priority queues and they are often implemented with using a heap, another data structure that will be discussed later.
+
+Time complexity for priority queues using an array implementation:
+* Insertion: O(n)
+* Deletion: O(1)
+
+## LinkedLists
+Linked lists are propably the second most used data structure. They are extremely versatile and can replace arrays on many different use cases, improving operations such as insertion, deletion and search quite a lot. Also, they can be used, as noted before, to implement data structures like queues and stacks.
+
+LinkedLists can have multiple types, like singleLinkedLists, doublyLinkedLists, lists with iterators and more.
+
+Lafore names the elements of a linked list as `links`, but another name used out there is `nodes`. Each node or link contains the element itself and a reference to another link, such as each node points to the next node on the list. This way we can create a similar structure of an array, a linear one that is, but that can hold an indefinite amount of nodes (the size is given by the amount of memory available) and it's dinamically sized.
+
+![alt text](images/linked-list.png)
+
+Given the enormous amount of possible implementations, let's assume you can only insert items at the start and that there is only three possible operations: insertion, deletion and iteration (sometimes called traversing the list). The time complexity for them are as follow:
+
+* Insertion: O(1)
+* Deletion: O(n)
+* Iteration: O(n)
+
+These 
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
