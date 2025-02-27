@@ -37,6 +37,14 @@ Here's an image from the book that displays a graph of different time complexiti
 
 ![alt text](images/big-o-graph.png)
 
+Once we analyse the image we can crearly see how different time complexities behave once the collection's size increases.
+
+* O(1) operations are the fastest, because they don't depend on the collection's size.
+* While not as good as constant time, O(logN) operations are performant.
+* Linear or O(n) is ok, the time increases proportionally with size.
+* O(n²) is horrible, yet there is another one, O(n!) which is even worse than that.
+
+Idealy speaking we would like to make all operations constant time O(1) and although this is not possible we can choose the right data-structure for the right task. Part of the effort when creating algorithms is to consider what operations would be done and from there decide what operations (based on their time complexity) we should implement.
 
 ## Sorting
 Sorting is the process of organizing and ordering a collection of data based on a condition, like a key value (1, 2, 3...) or alphabetical order (a, b, c...), for example. The topic of sorting is extremely important because they can severely impact perfomance and lots of sorting strategies exist. Initially, for begginers it's nice to study the simpler ones.
@@ -150,7 +158,45 @@ Given the enormous amount of possible implementations, let's assume you can only
 * Deletion: O(n)
 * Iteration: O(n)
 
-These 
+The advantages of using a LinkedList instead of an array:
+
+1. LinkedLists are dinamically sized.
+2. Because they are not sequential within the memory you don't need to move items once you remove or add elements.
+3. They occupy only the amount of memory needed.
+
+On the other hand, you "pay" the price for this in both complexity and by adding a reference for the next element inside each link.
+
+### Double-ended linkedlists
+
+LinkedLists have a variable that tracks the first element of the list. If you want to insert an element at the end of this list you have to iterate over it until you find the last element and this takes O(n). Because of this inefficency it's possible to store a reference for the last element as well, then you can insert elements at both ends of the list in O(1) time:
+
+![alt text](images/double-ended-list.png)
+
+This approach is useful when, for example, implementing a queue with a linkedlist.
+
+### Doubly Linked Lists
+
+While in a single linked list each element holds a reference to the next element, a doubly linked list holds two references: one for the next element and one for the previous one. This approach allows for traversing in either direction, we can go from the first to the last element and vice versa. This would not be possible on a single one.
+
+The image below provides a visual representation of a doubly linked list. Note that each element contains two references, one for next and one for the previous elements.
+
+![alt text](images/doubly-linked-list.png)
+
+Note that we can know when the list starts and when it ends by look at the previous and next references:
+
+* If the element's next points to null you at the end (like with single linked lists).
+* If the element's previous points to null you at the beginning.
+* If both references point to null then the list is empty.
+
+Although their name is similar, double-ended and doubly linked lists are different and they should not be confused with each other.
+
+Doubly linked lists have two main drawbacks, first a little overhead is added by keeping an extra reference inside each link and second is that when inserting and deleting elements you need to handle 4 references instead of 2.
+
+Time complexity for operations are:
+
+* Insertion or deletion at beginning or end of the list: O(1)
+* Insertion or deletion within the list: O(n)
+* Searching (traversal): O(n)
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
