@@ -1,4 +1,4 @@
-package lists.linked_list.exercises.ex1;
+package lists.linkedlist.exercises.ex1;
 
 public class PersonLink {
 

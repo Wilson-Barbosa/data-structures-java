@@ -119,6 +119,24 @@ public class LinkedList<T> {
         }
     }
 
+    public Node<T> getFirstNode() {
+        return first;
+    }
+
+    public Node<T> getLastNode() {
+        return last;
+    }
+
+    /**
+     * Returns an Iterator object for this class that initially
+     * points to the first element inside the list.
+     * 
+     * @return an iterator instance
+     */
+    public Iterator<T> getIterator() {
+        return new Iterator<>(this);
+    }
+
 }
 
 /**
@@ -128,7 +146,7 @@ public class LinkedList<T> {
  * 
  * <p>
  * Note that Lafore names an element Link. In this case, I'm changing it to
- * Node, just because this seems the naming convention other people use.
+ * Node, just because it's the name people usually use.
  * It really doesn't matter though, as this class' users won't create
  * themselves the Nodes.
  * </p>

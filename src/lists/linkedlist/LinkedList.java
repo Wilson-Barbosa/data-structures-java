@@ -1,4 +1,4 @@
-package lists.linked_list;
+package lists.linkedlist;
 
 public class LinkedList {
 

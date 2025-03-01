@@ -1,4 +1,4 @@
-package lists.linked_list;
+package lists.linkedlist;
 
 /**
  * Class that implements LinkedList element called, well, Link. This is done by following

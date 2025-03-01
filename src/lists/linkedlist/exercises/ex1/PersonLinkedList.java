@@ -1,4 +1,4 @@
-package lists.linked_list.exercises.ex1;
+package lists.linkedlist.exercises.ex1;
 
 /**
  * Implementation of an LinkedList for PersonLink objects. It doesn't check if

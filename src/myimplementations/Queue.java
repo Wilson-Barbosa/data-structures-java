@@ -1,7 +1,7 @@
 package myimplementations;
 
 /**
- * Implementation of a queue data structure using a Double-ended LinkedList.
+ * Implementation of a queue data structure using a DoublyLinkedList.
  */
 public class Queue<T> {
 

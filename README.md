@@ -5,6 +5,30 @@ Right at the beggining the author introduces a tool called `Workshop Applets` fo
 
 Of course there are other tools out there as well like [this one](https://www.cs.usfca.edu/~galles/visualization/), so feel free to seek them out.
 
+## Table of contents
+
+- [About this repository](#about-this-repository)
+- [The Big O Notation](#the-big-o-notation)
+  - [Introduction](#introduction)
+  - [How to think ](#how-to-think)
+- [Sorting](#sorting)
+  - [Bubble-sort](#bubble-sort)
+- [Data Structures](#data-structures)
+  - [Definition](#definition)
+  - [Arrays](#arrays)
+  - [Ordered Arrays](#ordered-arrays)
+  - [Stacks](#stacks)
+  - [Queues](#queues)
+  - [Dequeues](#deques)
+  - [Priority Queues](#priority-queues)
+  - [LinkedLists](#linkedlists)
+  - [Double-ended LinkedLists](#double-ended-linkedlists)
+  - [Doubly LinkedLists](#doubly-linkedlists)
+  - [Iterators](#iterators)
+- [The java collections framework](#the-java-collections-framework)
+
+
+
 ## The big O notation
 
 ### Introduction
@@ -53,10 +77,6 @@ The Workshop applets are EXTREMELY useful for sorting visualization.
 
 ### Bubble sort
 This sorting algorithm is the probably the most simpler, but also extremely inefficient. Real world applications won't use, because its time complexity is O(n²), but its simple implementations helps understanding how sorting works. 
-
-### Selection sort
-
-### Insertion sort
 
 ## Data structures
 
@@ -166,7 +186,7 @@ The advantages of using a LinkedList instead of an array:
 
 On the other hand, you "pay" the price for this in both complexity and by adding a reference for the next element inside each link.
 
-### Double-ended linkedlists
+### Double-ended LinkedLists
 
 LinkedLists have a variable that tracks the first element of the list. If you want to insert an element at the end of this list you have to iterate over it until you find the last element and this takes O(n). Because of this inefficency it's possible to store a reference for the last element as well, then you can insert elements at both ends of the list in O(1) time:
 
@@ -174,9 +194,9 @@ LinkedLists have a variable that tracks the first element of the list. If you wa
 
 This approach is useful when, for example, implementing a queue with a linkedlist.
 
-### Doubly Linked Lists
+### Doubly LinkedLists
 
-While in a single linked list each element holds a reference to the next element, a doubly linked list holds two references: one for the next element and one for the previous one. This approach allows for traversing in either direction, we can go from the first to the last element and vice versa. This would not be possible on a single one.
+While in a single linked list each element holds a reference to the next element, a doubly linked list holds two references: one for the next element and one for the previous one. This approach allows for traversing in either direction, we can go from the first to the last element and vice versa. This would not be possible on a single linkedlist.
 
 The image below provides a visual representation of a doubly linked list. Note that each element contains two references, one for next and one for the previous elements.
 
@@ -197,6 +217,27 @@ Time complexity for operations are:
 * Insertion or deletion at beginning or end of the list: O(1)
 * Insertion or deletion within the list: O(n)
 * Searching (traversal): O(n)
+
+### Iterators
+
+Traversing a list is a common task and all types of list implementations do this to search, add or remove an element. Let's analyse an insertion on a ordered list:
+
+1. the user calls the method
+2. somehow, the method performs the traversal
+3. then inserts the item inside the list
+
+Note that during this process the users themselves don't have any control on how the traversal is done. A user might want to traverse a list of employees and update the salaries of the ones who earn more than 2k a month, but not alter the others. An array provides index-based access and this traversal-control it's trivial, but how can a list expose an access for its links (nodes)? 
+
+A possible solution is to provide for the class' user a reference that points to each link. This reference can be updated as the list is traversed, allowing the user to perform any operation he wants just by accessing the object's reference.
+
+Following OO principles we can use a class Iterator to allow the user to create multiple references for the links in the list, so we can access them like we do within arrays.
+
+![alt text](images/iterator-example.png)
+
+Although each use case may require specific operations, Iterators generally provide methods like:
+* Traversal (going from on link to the next)
+* Add or remove elements at certain positions (calling the list's methods for it)
+* Inform the user if the current item is at the start or end of the list
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
