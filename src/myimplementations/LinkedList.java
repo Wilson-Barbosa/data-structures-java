@@ -28,7 +28,7 @@ public class LinkedList<T> {
      * 
      * @param element is the element to be added.
      */
-    public void add(T element) {
+    public void addAtStart(T element) {
 
         Node<T> newNode = new Node<>(element);
 
@@ -63,32 +63,34 @@ public class LinkedList<T> {
 
             return count;
         }
-        
     }
 
     /**
      * Removes the first element inside the list and returns it.
      * If the list is emtpy returns null.
      * 
-     * @return the first element 
+     * @return the first element
      */
     public T removeFirst() {
 
-        if (isEmpty()) {
-            System.out.println("List is empty.");
-            return null;
-        } else {
+        if (!isEmpty()) {
             T e = first.getElement();
             first = first.getNext();
             return e;
         }
 
+        return null;
     }
 
-    public void removeElement(T element){
-
+    /** Returns the first element of the list or null if its empty */
+    public T getFirst() {
+        return first.getElement();
     }
 
+    /** Returns the last element of the list or null if its empty */
+    public T getLast() {
+        return last.getElement();
+    }
 
     public boolean isEmpty() {
         return first == null;
@@ -108,14 +110,13 @@ public class LinkedList<T> {
             String output = "Start: ";
 
             while (current != null) {
-                output += current.getElement().toString() + " --> "; // TODO fix the printing h
+                output += current.getElement().toString() + " --> "; // TODO fix the printing here
                 current = current.getNext();
             }
             output += "null";
 
             System.out.println(output);
         }
-
     }
 
 }
@@ -156,7 +157,5 @@ class Node<T> {
     public void setNext(Node<T> next) {
         this.next = next;
     }
-
-    
 
 }
