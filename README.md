@@ -78,6 +78,21 @@ The Workshop applets are EXTREMELY useful for sorting visualization.
 ### Bubble sort
 This sorting algorithm is the probably the most simpler, but also extremely inefficient. Real world applications won't use, because its time complexity is O(n²), but its simple implementations helps understanding how sorting works. 
 
+Bubble sort works by taking the item at position 0 and comparing it to the next, at position 1. If it's bigger swap the items and proceed with the next (comparing index[1] to index[2], for example) and so on. Items that are bigger will be pushed one at the time to the end of the array. You can also think of it as sorting items from left to right.
+
+Time complexity for the bubble sort is horrible and, as the mentioned earlier, and for both swaps and comparisons the time is O(n²).
+
+
+### Selection sort
+Selection sort works by iterating over the array and storing the index of the smallest element. Once you reach its end you swap the smallest and the first items. Index[0] holds the smallest item and it's sorted. Iterate the array again starting from the second item.
+
+Selection sort is an improvement from bubble sort, it decreases the number (not time complexity mind you) of swaps from O(n²) to O(n), but leaves the comparisons' number as O(n²). Smaller datasets are better sorted with selection, but for really large ones the improvement is not too significant.
+
+### Insertion sort
+
+
+
+
 ## Data structures
 
 ### Definition
