@@ -2,6 +2,8 @@ package utils;
 
 import java.util.Random;
 
+import arrays.OrderedArray;
+
 public class Creators {
     
     /**
@@ -39,6 +41,17 @@ public class Creators {
         }
 
         return array;
+    }
+
+    /**
+     * Creates an orderedArray instance with methods for searching and printing elements
+     * 
+     * @param size is the array's max size
+     * @param upperBound the highest number possible
+     * @return an OrderedArray instance
+     */
+    public static OrderedArray generateRandomOrderedArray(int size, int upperBound){
+        return new OrderedArray(generateRandomArray(size, upperBound));
     }
 
 }

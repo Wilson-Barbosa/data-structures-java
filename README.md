@@ -13,6 +13,7 @@ Of course there are other tools out there as well like [this one](https://www.cs
   - [How to think ](#how-to-think)
 - [Sorting](#sorting)
   - [Bubble-sort](#bubble-sort)
+  - [Selection-sort](#selection-sort)
 - [Data Structures](#data-structures)
   - [Definition](#definition)
   - [Arrays](#arrays)
@@ -25,6 +26,7 @@ Of course there are other tools out there as well like [this one](https://www.cs
   - [Double-ended LinkedLists](#double-ended-linkedlists)
   - [Doubly LinkedLists](#doubly-linkedlists)
   - [Iterators](#iterators)
+  - [Recursion](#recursion)
 - [The java collections framework](#the-java-collections-framework)
 
 
@@ -253,6 +255,17 @@ Although each use case may require specific operations, Iterators generally prov
 * Traversal (going from on link to the next)
 * Add or remove elements at certain positions (calling the list's methods for it)
 * Inform the user if the current item is at the start or end of the list
+
+## Recursion
+Recursion is an extremely useful programming technique for solving problems complex problems. It involves a method calling itself. You can imagine that a recursive function performs a similar operation of a for-loop or while-loop, so a function must call itself based on an condition, therefore avoiding infinite loops and this is called base case.
+
+It can be a bit hard to understand how a particular recursion executes, so there are three key-concepts involved:
+
+1. Base Case – Stops the recursion when a condition is met.
+2. Recursive Case – Calls itself with a smaller or modified version of the problem.
+3. Call Stack – Each recursive call is pushed onto the stack and popped off when returning.
+
+Recursion approaches are useful when you have a problem can be expressed by itself. Factorials are a good example of this. The factorial of a number can be expressed by another factorial, that can be expressed by another factorial and so on... It implies a certain circular behavior or pattern involved in it and this behavior can be expressed as a function that calls itself over and over until a certain condition is met. Once this happens the return values are returned, one for each calling.
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
