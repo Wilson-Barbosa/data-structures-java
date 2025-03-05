@@ -27,6 +27,7 @@ Of course there are other tools out there as well like [this one](https://www.cs
   - [Doubly LinkedLists](#doubly-linkedlists)
   - [Iterators](#iterators)
   - [Recursion](#recursion)
+  - [Binary Trees](#binary-trees)
 - [The java collections framework](#the-java-collections-framework)
 
 
@@ -256,7 +257,7 @@ Although each use case may require specific operations, Iterators generally prov
 * Add or remove elements at certain positions (calling the list's methods for it)
 * Inform the user if the current item is at the start or end of the list
 
-## Recursion
+### Recursion
 Recursion is an extremely useful programming technique for solving problems complex problems. It involves a method calling itself. You can imagine that a recursive function performs a similar operation of a for-loop or while-loop, so a function must call itself based on an condition, therefore avoiding infinite loops and this is called base case.
 
 It can be a bit hard to understand how a particular recursion executes, so there are three key-concepts involved:
@@ -266,6 +267,50 @@ It can be a bit hard to understand how a particular recursion executes, so there
 3. Call Stack – Each recursive call is pushed onto the stack and popped off when returning.
 
 Recursion approaches are useful when you have a problem can be expressed by itself. Factorials are a good example of this. The factorial of a number can be expressed by another factorial, that can be expressed by another factorial and so on... It implies a certain circular behavior or pattern involved in it and this behavior can be expressed as a function that calls itself over and over until a certain condition is met. Once this happens the return values are returned, one for each calling.
+
+Although a recursive approach is beneficial it also be a bit inefficient. It's possible to solve recursive problems using a stack implementation which can be useful sometimes, some compilers for example can use a stack to implement recursion. 
+
+The reason we talked about recursion is because they are a key component when studying a data structure called binary trees.
+
+### Binary Trees
+
+Binary trees combine the advantages of two data-structures: ordered arrays and linkedlists. They combine the quick insertion and deletion of linkedlists and the fast search from ordered arrays.
+
+As the name suggests a binary tree is a type of tree. We can think of a tree as Nodes that are connected to each other. A A Node can be anything, but in the context of java it will most certainly be an object. The following images provides a visual representation of a general tree with its Nodes and their connections:
+
+![alt text](images/general-tree.png)
+
+In principle you can only go from one Node to another by following their connection and in terms of code, a connection is a reference for another object. As you can see, there is a somewhat resemblence of a LinkedList with its links and next/previous references.
+
+The following image shows the terminology of each tree component:
+
+![alt text](images/binary-tree-terminology.png)
+
+A tree is a rather complex structure with a lot of parts in it, so this is a brief description of its most importent concepts:
+
+* <b>Path: </b> is a sequence of connected Nodes
+* <b>Root: </b> Node located at the top of the tree, the only Node that doesn't have a parent.
+* <b>Parent: </b> a Node with downward connections to other Nodes
+* <b>Child: </b> is a Node with upward connections to other Nodes.
+* <b>Leaf: </b> a Node that doesn't have any children. A tree can have only one root, but may have multiple leaves.
+* <b>Subtree: </b>
+* <b>Visiting: </b> is when a program control arrives at a certain Node, usually to perfom some operation in it. Passing throught it without performing anything (during a path for example) is not considered visiting the node.
+* <b>Traversing: </b> is the visiting all Nodes within an order, like visiting all Nodes by ascending key-value.
+* <b>Levels: </b> means how many layers or "generations" a certain Node is away from root Node. If we assume root to be level 0, then it's children are on level 1, grandchildren at level 2 and so on.
+* <b>Keys: </b> it's common to define some field inside an object as it's identifier, for example personId or something similar, so keys are used to identify and order each Node within a tree.
+
+#### Binary trees
+A tree is called binary if its Nodes contain zero or at most 2 children. These children are called <i>left child</i> or <i>right child</i> depending on their position. This restriction implies that each child can only have one direct parent.
+
+Technically speaking, the tree we are discussing here is called a <i>binary search tree</i> and the following image represents one with its key values at the center of each Node:
+
+![alt text](images/binary-search-tree.png)
+
+Note that another important characteristic of binary trees is that <b>left child Nodes must have their key values lower than it's parent, and right child Nodes must have a key value equal or bigger than its parent.</b> This property is extremely useful, for it allows the Nodes to be ordered and searched effectively.
+
+Operations on a binary tree are a bit more complex compared to previous structures, so let's describe then here:
+
+1. </b>Insertion<b>
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
