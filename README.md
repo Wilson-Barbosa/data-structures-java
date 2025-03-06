@@ -62,7 +62,7 @@ Of course, this example doesn't consider factors like duplicate values, null val
 
 Here's an image from the book that displays a graph of different time complexities:
 
-![alt text](images/big-o-graph.png)
+![alt text](./src/main/resources/static/images/big-o-graph.png)
 
 Once we analyse the image we can crearly see how different time complexities behave once the collection's size increases.
 
@@ -144,7 +144,7 @@ Because of their access restriction the time complexity for operations mentioned
 
 The following image ilustrates how these operations work:
 
-![alt text](images/stack.png)
+![alt text](./src/main/resources/static/images/stack.png)
 
 ### Queues
 Queues are another data structures that can be used more as a tool than a storage system. They are similar to stacks in the fact they provide a access restriction to their elements. Stacks follow the FILO principle, but queues follow the FIFO (first-in, first-out) principle, very much like queues in real life. To acomplish this queues must track the front and back elements and these variables are usually called `front` and `rear`.
@@ -163,7 +163,7 @@ Again, like stacks, the access restriction allows for extremely fast operations 
 
 The following image represents the operations done in a queue:
 
-![alt text](images/queue.png)
+![alt text](./src/main/resources/static/images/queue.png)
 
 One thing to notice it that when you implement a queue using an array you don't really move the items around, like when queue and dequeue elements you just move the rear and front variables to point to different elements. This is because moving the item would require copying, deleting and adding them to another array, which would require extra time O(n) and operations, while moving the pointers of rear and front is O(1).
 
@@ -188,7 +188,7 @@ LinkedLists can have multiple types, like singleLinkedLists, doublyLinkedLists, 
 
 Lafore names the elements of a linked list as `links`, but another name used out there is `nodes`. Each node or link contains the element itself and a reference to another link, such as each node points to the next node on the list. This way we can create a similar structure of an array, a linear one that is, but that can hold an indefinite amount of nodes (the size is given by the amount of memory available) and it's dinamically sized.
 
-![alt text](images/linked-list.png)
+![alt text](./src/main/resources/static/images/linked-list.png)
 
 Given the enormous amount of possible implementations, let's assume you can only insert items at the start and that there is only three possible operations: insertion, deletion and iteration (sometimes called traversing the list). The time complexity for them are as follow:
 
@@ -208,7 +208,7 @@ On the other hand, you "pay" the price for this in both complexity and by adding
 
 LinkedLists have a variable that tracks the first element of the list. If you want to insert an element at the end of this list you have to iterate over it until you find the last element and this takes O(n). Because of this inefficency it's possible to store a reference for the last element as well, then you can insert elements at both ends of the list in O(1) time:
 
-![alt text](images/double-ended-list.png)
+![alt text](./src/main/resources/static/images/double-ended-list.png)
 
 This approach is useful when, for example, implementing a queue with a linkedlist.
 
@@ -218,7 +218,7 @@ While in a single linked list each element holds a reference to the next element
 
 The image below provides a visual representation of a doubly linked list. Note that each element contains two references, one for next and one for the previous elements.
 
-![alt text](images/doubly-linked-list.png)
+![alt text](./src/main/resources/static/images/doubly-linked-list.png)
 
 Note that we can know when the list starts and when it ends by look at the previous and next references:
 
@@ -250,7 +250,7 @@ A possible solution is to provide for the class' user a reference that points to
 
 Following OO principles we can use a class Iterator to allow the user to create multiple references for the links in the list, so we can access them like we do within arrays.
 
-![alt text](images/iterator-example.png)
+![alt text](./src/main/resources/static/images/iterator-example.png)
 
 Although each use case may require specific operations, Iterators generally provide methods like:
 * Traversal (going from on link to the next)
@@ -278,13 +278,13 @@ Binary trees combine the advantages of two data-structures: ordered arrays and l
 
 As the name suggests a binary tree is a type of tree. We can think of a tree as Nodes that are connected to each other. A A Node can be anything, but in the context of java it will most certainly be an object. The following images provides a visual representation of a general tree with its Nodes and their connections:
 
-![alt text](images/general-tree.png)
+![alt text](./src/main/resources/static/images/general-tree.png)
 
 In principle you can only go from one Node to another by following their connection and in terms of code, a connection is a reference for another object. As you can see, there is a somewhat resemblence of a LinkedList with its links and next/previous references.
 
 The following image shows the terminology of each tree component:
 
-![alt text](images/binary-tree-terminology.png)
+![alt text](./src/main/resources/static/images/binary-tree-terminology.png)
 
 A tree is a rather complex structure with a lot of parts in it, so this is a brief description of its most importent concepts:
 
@@ -304,7 +304,7 @@ A tree is called binary if its Nodes contain zero or at most 2 children. These c
 
 Technically speaking, the tree we are discussing here is called a <i>binary search tree</i> and the following image represents one with its key values at the center of each Node:
 
-![alt text](images/binary-search-tree.png)
+![alt text](./src/main/resources/static/images/binary-search-tree.png)
 
 Note that another important characteristic of binary trees is that <b>left child Nodes must have their key values lower than it's parent, and right child Nodes must have a key value equal or bigger than its parent.</b> This property is extremely useful, for it allows the Nodes to be ordered and searched effectively.
 
@@ -319,7 +319,7 @@ Operations on a binary tree are a bit more complex compared to previous structur
 
 Note that these estimations are for relatively well balanced trees, if your tree is unbalanced the then the time approaches O(n), as the tree starts resembling more and more a linkedlist. Unbalanced tree can negatively affect many operations. Deciding which one should be root and how you insert items can prevent a tree becoming too unbalanced, the following image shoes one such tree:
 
-![alt text](images/unbalanced-tree.png)
+![alt text](./src/main/resources/static/images/unbalanced-tree.png)
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
