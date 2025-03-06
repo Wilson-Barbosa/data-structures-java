@@ -25,7 +25,7 @@ public class IntBinaryTree {
     /** Creates a balanced binary tree using the element at the middle as root */
     public IntBinaryTree(OrderedArray arr) {
 
-        // first I get the middle item and insert it
+        // first I get the middle item and insert it as root
         int[] a = arr.getArray();
         int middleIndex = a.length / 2;
 
@@ -125,6 +125,14 @@ public class IntBinaryTree {
 
     public void printAllElements(){
         traverseInorder(root);
+    }
+
+    public int size(){
+        int count = 0;
+
+
+
+        return count;
     }
 
     public void traverseInorder(Node localRoot) {
