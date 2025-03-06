@@ -99,4 +99,8 @@ public class OrderedArray {
         System.out.print("\n");
     }
 
+    public int[] getArray(){
+        return arr;
+    }
+
 }

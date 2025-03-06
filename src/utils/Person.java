@@ -4,16 +4,26 @@ package utils;
  * Class that can be used to run the sorting algorithms or to test
  * the data structure operations.
  */
-public class Person {
+public class Person implements Comparable<Person> {
 
+    private int id;
     private String firstName;
     private String lastName;
     private int age;
 
-    public Person(String firstName, String lastName, int age) {
+    public Person(int id, String firstName, String lastName, int age) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -44,9 +54,7 @@ public class Person {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-        result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-        result = prime * result + age;
+        result = prime * result + id;
         return result;
     }
 
@@ -59,26 +67,19 @@ public class Person {
         if (getClass() != obj.getClass())
             return false;
         Person other = (Person) obj;
-        if (firstName == null) {
-            if (other.firstName != null)
-                return false;
-        } else if (!firstName.equals(other.firstName))
-            return false;
-        if (lastName == null) {
-            if (other.lastName != null)
-                return false;
-        } else if (!lastName.equals(other.lastName))
-            return false;
-        if (age != other.age)
+        if (id != other.id)
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
+        return "Person [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
     }
 
-    
+    @Override
+    public int compareTo(Person o) {
+        return Integer.compare(this.id, o.getId());
+    }
 
 }

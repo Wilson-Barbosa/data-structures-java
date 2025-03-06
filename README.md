@@ -181,7 +181,7 @@ Time complexity for priority queues using an array implementation:
 * Insertion: O(n)
 * Deletion: O(1)
 
-## LinkedLists
+### LinkedLists
 Linked lists are propably the second most used data structure. They are extremely versatile and can replace arrays on many different use cases, improving operations such as insertion, deletion and search quite a lot. Also, they can be used, as noted before, to implement data structures like queues and stacks.
 
 LinkedLists can have multiple types, like singleLinkedLists, doublyLinkedLists, lists with iterators and more.
@@ -293,13 +293,13 @@ A tree is a rather complex structure with a lot of parts in it, so this is a bri
 * <b>Parent: </b> a Node with downward connections to other Nodes
 * <b>Child: </b> is a Node with upward connections to other Nodes.
 * <b>Leaf: </b> a Node that doesn't have any children. A tree can have only one root, but may have multiple leaves.
-* <b>Subtree: </b>
+* <b>Subtree: </b> sub section of a tree where you can take the Node at a top and consider it a root for that section. 
 * <b>Visiting: </b> is when a program control arrives at a certain Node, usually to perfom some operation in it. Passing throught it without performing anything (during a path for example) is not considered visiting the node.
 * <b>Traversing: </b> is the visiting all Nodes within an order, like visiting all Nodes by ascending key-value.
 * <b>Levels: </b> means how many layers or "generations" a certain Node is away from root Node. If we assume root to be level 0, then it's children are on level 1, grandchildren at level 2 and so on.
 * <b>Keys: </b> it's common to define some field inside an object as it's identifier, for example personId or something similar, so keys are used to identify and order each Node within a tree.
 
-#### Binary trees
+#### The definition of a Binary tree
 A tree is called binary if its Nodes contain zero or at most 2 children. These children are called <i>left child</i> or <i>right child</i> depending on their position. This restriction implies that each child can only have one direct parent.
 
 Technically speaking, the tree we are discussing here is called a <i>binary search tree</i> and the following image represents one with its key values at the center of each Node:
@@ -308,9 +308,18 @@ Technically speaking, the tree we are discussing here is called a <i>binary sear
 
 Note that another important characteristic of binary trees is that <b>left child Nodes must have their key values lower than it's parent, and right child Nodes must have a key value equal or bigger than its parent.</b> This property is extremely useful, for it allows the Nodes to be ordered and searched effectively.
 
-Operations on a binary tree are a bit more complex compared to previous structures, so let's describe then here:
+Operations on a binary tree are a bit more complex compared to previous structures, so let's describe then bellow. 
 
-1. </b>Insertion<b>
+1. <b>Search: </b> when searching for an element the time depends on how many levels down the item is located. While the number of item can increase exponentially, the number of levels increases linearly, so it's really efficient. In fact, the time complexity for this operation is O(N.logN), which is really efficient when the collection's size increases 
+
+2. <b>Insertion: </b> insertion requires first look a proper Node, choosing the right path if the key is bigger than the visited node or left if it's smaller and checking if the proper position is null. Because of that, the time complexity for insertion is O(N.logN) also. 
+
+3. <b>Traversal: </b> as noted before, traversal is the process of visiting each node in a specified order and although this is a not a super common operation to carry out it can be important in some cases. There are three ways of traversing a BTS: <i>preorder</i>, <i>inorder</i> and <i>postorder</i>. Inorder is the most common strategy and it uses recursion to visit each node sequentially.
+
+
+Note that these estimations are for relatively well balanced trees, if your tree is unbalanced the then the time approaches O(n), as the tree starts resembling more and more a linkedlist. Unbalanced tree can negatively affect many operations. Deciding which one should be root and how you insert items can prevent a tree becoming too unbalanced, the following image shoes one such tree:
+
+![alt text](images/unbalanced-tree.png)
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
