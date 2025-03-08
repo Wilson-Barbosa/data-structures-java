@@ -1,20 +1,20 @@
 package com.datastructures.myimplementations;
 
-import com.datastructures.myimplementations.singlylinkedlist.LinkedList;
+import com.datastructures.myimplementations.singlylinkedlist.SinglyLinkedList;
 
 /**
  * Implementation of a stack data structure using a LinkedList.
  */
 public class Stack<T> {
 
-    private LinkedList<T> list;
+    private SinglyLinkedList<T> list;
     private T top; // tracks the top item in the stack
 
     /**
      * Creates an empty stack.
      */
     public Stack() {
-        this.list = new LinkedList<T>();
+        this.list = new SinglyLinkedList<T>();
     }
 
     /**

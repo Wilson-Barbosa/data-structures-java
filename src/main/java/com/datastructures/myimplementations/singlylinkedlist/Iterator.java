@@ -9,13 +9,13 @@ public class Iterator<T> {
 
     private Link<T> current;
     private Link<T> previous;
-    private LinkedList<T> list;
+    private SinglyLinkedList<T> list;
 
     /**
      * Creates a new Iterator instance for the class passed as an argument
      * and points to the first element of the list.
      */
-    public Iterator(LinkedList<T> list) {
+    public Iterator(SinglyLinkedList<T> list) {
         this.list = list;
         current = list.getFirstLink();
     }

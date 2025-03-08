@@ -244,7 +244,7 @@ Traversing a list is a common task and all types of list implementations do this
 2. somehow, the method performs the traversal
 3. then inserts the item inside the list
 
-Note that during this process the users themselves don't have any control on how the traversal is done. A user might want to traverse a list of employees and update the salaries of the ones who earn more than 2k a month, but not alter the others. An array provides index-based access and this traversal-control it's trivial, but how can a list expose an access for its links (nodes)? 
+Note that during this process the users themselves don't have any control on how the traversal is done. A user might want to traverse a list of employees and update the salaries of the ones who earn more than 2k a month, but not alter the others. An array provides index-based access and this traversal-control it's trivial, but how can a list expose an access for its links? 
 
 A possible solution is to provide for the class' user a reference that points to each link. This reference can be updated as the list is traversed, allowing the user to perform any operation he wants just by accessing the object's reference.
 

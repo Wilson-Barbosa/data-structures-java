@@ -8,31 +8,37 @@ public class BinaryTree<T extends Comparable<T>> {
 
     private Node<T> root;
 
-    /**
-     * Creates an empty tree.
-     */
+    /** Creates an empty tree. */
     public BinaryTree() {
 
     }
 
-    public void find(T element) {
-
-        if (isEmpty()) {
-            System.out.println("Tree is empty");
-        } else {
-
-            Node<T> current = root;
-
-        }
-
-    }
-
-    public void traverInorder(){
-        
+    public Node<T> getRootNode() {
+        return root;
     }
 
     /**
-     * Method that insert a new Node in the tree containing the elemente passed as
+     * Traverses the tree and prints on the terminal the first occurrence of the
+     * element passed in as argument.
+     * 
+     * @param element
+     */
+    public void findFirst(T element) {
+
+    }
+
+    /**
+     * Traverses the tree and prints on the terminal all occurrences of the element
+     * passed in as argument.
+     * 
+     * @param element the element you want to search
+     */
+    public void findAll(T element) {
+
+    }
+
+    /**
+     * Method that inserts a new Node in the tree containing the elemente passed as
      * argument. It uses the compareTo() method to determine the position, so you
      * need to override it on your class.
      * 
@@ -51,7 +57,7 @@ public class BinaryTree<T extends Comparable<T>> {
             // traverse the tree
             while (true) {
 
-                if (element.compareTo(current.getElement()) >= 0) { // to the right
+                if (element.compareTo(current.getElement()) >= 0) { // go to the right
 
                     if (current.getRightChild() == null) { // can insert on right child?
                         current.getRightChild().setRightChild(newNode);
@@ -76,54 +82,108 @@ public class BinaryTree<T extends Comparable<T>> {
 
     }
 
+    /**
+     * Returns the smallest element inside this tree or null if the list is emtpy.
+     * 
+     * @return the smallest element or null
+     */
+    public T getMinElement() {
+
+        T element = null;
+
+        if (isEmpty()) {
+            System.out.println("tree is emtpy");
+        } else {
+
+            Node<T> current = root;
+            while (current.getLeftChild() != null) {
+                current = current.getLeftChild();
+            }
+            element = current.getElement();
+        }
+
+        return element;
+    }
+
+    /**
+     * Returns the biggest element inside this tree or null if the list is emtpy.
+     * 
+     * @return the biggest element or null
+     */
+    public T getMaxElement() {
+        T element = null;
+
+        if (isEmpty()) {
+            System.out.println("tree is Empty");
+        } else {
+
+            Node<T> current = root;
+            while (current.getRightChild() != null) {
+                current = current.getRightChild();
+            }
+            element = current.getElement();
+        }
+
+        return element;
+    }
+
+    /**
+     * Removes the first occurrence of the passed element. This method uses the
+     * compareTo() to determine the position and equals() to determine equality.
+     * 
+     * @param element is the element you want to remove
+     */
     public void delete(T element) {
+
+        if (isEmpty()) {
+            System.out.println("tree is empty");
+        } else {
+            traversalDelete(element, root);
+        }
+
+    }
+
+    private void traversalDelete(T element, Node<T> node) {
+
+        if (node == null) {
+            return;
+        } else {
+
+            if (element.compareTo(node.getElement()) >= 0) { // check the right
+                
+                if(element.equals(node.getElement())) { // found the item
+
+                } else {
+                    traversalDelete(element, node.getRightChild()); // go for the next
+                }
+
+            } else { // 
+
+            }
+
+        }
+
+    }
+
+    /**
+     * Removes all occurrences of the passed element. This method uses the
+     * compareTo() to determine the position and equals() to determine equality.
+     * 
+     * @param element
+     */
+    public void deleteAll(T element) {
 
     }
 
     public boolean isEmpty() {
         return root == null;
     }
-}
 
-/**
- * Node that goes inside a Binary tree. It has two references, one for each of
- * it's children: right and left
- */
-class Node<T> {
-
-    private T element;
-    private Node<T> rightChild;
-    private Node<T> leftChild;
-    // private Node<> parent; <-- It's possible to add a reference for the parent
-    // node and
-    // this can simplify some operations, but complicate others.
-
-    public Node(T element) {
-        this.element = element;
+    /**
+     * 
+     * @return an itera
+     */
+    public Iterator<T> getIterator() {
+        return new Iterator<>(this);
     }
-
-    public T getElement() {
-        return element;
-    }
-
-    public void setElement(T element) {
-        this.element = element;
-    }
-
-    public Node<T> getRightChild() {
-        return rightChild;
-    }
-
-    public void setRightChild(Node<T> rightChild) {
-        this.rightChild = rightChild;
-    }
-
-    public Node<T> getLeftChild() {
-        return leftChild;
-    }
-
-    public void setLeftChild(Node<T> leftChild) {
-        this.leftChild = leftChild;
-    }
-
 }

@@ -1,6 +1,6 @@
 package com.datastructures.myimplementations;
 
-import com.datastructures.myimplementations.doublylinkedlist.LinkedList;
+import com.datastructures.myimplementations.doublylinkedlist.DoublyLinkedList;
 
 /**
  * Implementation of a queue data structure using a DoublyLinkedList.
@@ -9,7 +9,7 @@ public class Queue<T> {
 
     private T end;
     private T front;
-    private LinkedList<T> list;
+    private DoublyLinkedList<T> list;
 
 
     public Queue(){
@@ -18,11 +18,11 @@ public class Queue<T> {
 
     public void enqueue(T element){
         list.addAtStart(element);
-        front = list.getFirst();
+        front = list.getFirstElement();
     }
 
     public T dequeue(){
-        T e = list.removeLast();
+        T e = list.removeLastElement();
         end = list.getLast();
         return e;
     }

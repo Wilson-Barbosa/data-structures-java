@@ -4,7 +4,7 @@ package com.datastructures.myimplementations.doublylinkedlist;
  * Generic implementation of a Doubly LinkedList. Allows for duplicate
  * items.
  */
-public class LinkedList<T> {
+public class DoublyLinkedList<T> {
 
     private Link<T> first;
     private Link<T> last;
@@ -12,7 +12,7 @@ public class LinkedList<T> {
     /**
      * Creates an emtpy list
      */
-    public LinkedList() {
+    public DoublyLinkedList() {
 
     }
 
@@ -90,19 +90,32 @@ public class LinkedList<T> {
     }
 
     /** Removes the last item in the list */
-    public T removeLast(){
+    public T removeLastElement() {
         Link<T> lastItem = last;
-        last.getPrevious().setNext(null);;
+        last.getPrevious().setNext(null);
+        ;
 
         return lastItem.getElement();
     }
 
-    public T getFirst() {
+    /** Returns the element at the start of the list */
+    public T getFirstElement() {
         return first.getElement();
     }
 
+    /** Returns the element at the end of the list */
     public T getLast() {
         return last.getElement();
+    }
+
+    /** Returns the first Link inside the list */
+    public Link<T> getFirstLink() {
+        return first;
+    }
+
+    /** Returns the last Link inside the list */
+    public Link<T> getLastLink() {
+        return last;
     }
 
     /**
@@ -129,5 +142,3 @@ public class LinkedList<T> {
         return first == null && last == null;
     }
 }
-
-

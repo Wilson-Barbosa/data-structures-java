@@ -11,7 +11,7 @@ package com.datastructures.myimplementations.singlylinkedlist;
  * I'm building this so that I can use throught the repository.
  * </p>
  */
-public class LinkedList<T> {
+public class SinglyLinkedList<T> {
 
     private Link<T> first;
     private Link<T> last;
@@ -19,7 +19,7 @@ public class LinkedList<T> {
     /**
      * Creates an emtpy list.
      */
-    public LinkedList() {
+    public SinglyLinkedList() {
 
     }
 
