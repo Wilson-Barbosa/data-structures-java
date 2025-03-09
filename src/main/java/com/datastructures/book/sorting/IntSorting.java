@@ -1,17 +1,16 @@
 package com.datastructures.book.sorting;
 
 /**
- * Class that provides sorting algorithms for int[] arrays.
+ * Class that provides sorting algorithms for int[] arrays. Most methods return
+ * a copy of the previous array so it's easier to test things.
  */
 public class IntSorting {
 
     /**
      * <p>
      * Receives an array of int numbers and sorts it using the famous (and quite
-     * slow)
-     * bubble sort algorithm. It also prints inside the terminal a few messages
-     * about
-     * the number of comparions or swaps done during the process.
+     * slow) bubble sort algorithm. It also prints inside the terminal a few
+     * messages about the number of comparions or swaps done during the process.
      * </p>
      * 
      * <p>
@@ -21,8 +20,7 @@ public class IntSorting {
      * 
      * <p>
      * <code>Comparisons</code> indicates how many steps or checks it took to sort
-     * the whole
-     * array.
+     * the whole array.
      * </p>
      * 
      * <p>
@@ -77,8 +75,7 @@ public class IntSorting {
      * <p>
      * Takes an an unordered array of int numbers and sorts it using
      * <code>selection sort</code> returning a sorted copy. Also, a few messages
-     * will
-     * be printed in the console.
+     * will be printed in the console.
      * </p>
      * <p>
      * <code>Swap</code> indicates how many times elements were swaped with each
@@ -87,8 +84,7 @@ public class IntSorting {
      * 
      * <p>
      * <code>Comparisons</code> indicates how many steps or checks it took to sort
-     * the whole
-     * array.
+     * the whole array.
      * </p>
      * 
      * <p>
@@ -136,9 +132,59 @@ public class IntSorting {
         return array;
     }
 
+    /**
+     * <p>
+     * Takes an an unordered array of int numbers and sorts it using
+     * <code>insertion sort</code> returning a sorted copy. Also, a few messages
+     * will be printed in the console.
+     * </p>
+     * <p>
+     * <code>Swap</code> indicates how many times elements were swaped with each
+     * other.
+     * </p>
+     * 
+     * <p>
+     * <code>Comparisons</code> indicates how many steps or checks it took to sort
+     * the whole
+     * array.
+     * </p>
+     * 
+     * <p>
+     * The sorting assumes there are no <code>null</code> values within the passed
+     * array.
+     * </p>
+     * 
+     * @param a the unordered array
+     * @return a sorted copy of the array
+     */
+    public static int[] insertionSort(int[] a) {
 
-    // public static int[] insertionSort(int[] a){
+        int[] array = a.clone();
+        int upperIndex = a.length;
+        int temp;
+        int swaps = 0;
+        int shifts = 0;
 
-    // }
+        for (int i = 1; i < upperIndex; i++) {
+
+            temp = array[i]; // to-be-sorted item
+            int rightIndex = i - 1;
+
+            // shitf elements one position to right until you reach array's end or find the
+            // right place
+            while (rightIndex >= 0 && temp <= array[rightIndex]) {
+                array[rightIndex + 1] = array[rightIndex];
+                shifts++;
+                rightIndex--;
+            }
+            array[rightIndex + 1] = temp;
+            swaps++;
+
+        }
+
+        System.out.println("Array sorted with " + shifts + " shitfs and " + swaps + " swaps.");
+
+        return array;
+    }
 
 }

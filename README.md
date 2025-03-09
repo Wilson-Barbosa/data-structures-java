@@ -14,6 +14,8 @@ Of course there are other tools out there as well like [this one](https://www.cs
 - [Sorting](#sorting)
   - [Bubble-sort](#bubble-sort)
   - [Selection-sort](#selection-sort)
+- [Advance Sorting](#advance-sorting)
+  - [Shellsort](#shellsort)
 - [Data Structures](#data-structures)
   - [Definition](#definition)
   - [Arrays](#arrays)
@@ -91,10 +93,20 @@ Selection sort works by iterating over the array and storing the index of the sm
 
 Selection sort is an improvement from bubble sort, it decreases the number (not time complexity mind you) of swaps from O(n²) to O(n), but leaves the comparisons' number as O(n²). Smaller datasets are better sorted with selection, but for really large ones the improvement is not too significant.
 
+
 ### Insertion sort
+Insertion sort runs at O(n²) like selection and bubble sorts, but it's about twice as fast as bubble and somewhat faster than selection sort.
 
+The algorithm considers one marked element and stores it outside the array, then items at the left of the store item are shifted one position to the right until you reach the end of the array or you find an item that is equal or smaller than the stored item, at which time you can insert the stored item at that position. Sorted items are placed continuously at the left side until everything is ordered. 
 
+## Advance Sorting
+The previous sorting strategies were rather slow, there are however better and faster options.
 
+### Mergesort
+Recursion can be used on lots of different scenarios and sorting is one of them. The algorithm that uses this strategy is called mergesort. 
+
+### Shellsort
+This stragery is called shellsort after its discover, Donald L. Shell in 1959
 
 ## Data structures
 
