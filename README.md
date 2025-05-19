@@ -30,9 +30,9 @@ Of course there are other tools out there as well like [this one](https://www.cs
   - [Iterators](#iterators)
   - [Recursion](#recursion)
   - [Binary Trees](#binary-trees)
+  - [Red-Black Trees](#red-black-trees)
+  - [2-3-4 Trees](#2-3-4-trees)
 - [The java collections framework](#the-java-collections-framework)
-
-
 
 ## The big O notation
 
@@ -103,7 +103,9 @@ The algorithm considers one marked element and stores it outside the array, then
 The previous sorting strategies were rather slow, there are however better and faster options.
 
 ### Mergesort
-Recursion can be used on lots of different scenarios and sorting is one of them. The algorithm that uses this strategy is called mergesort. 
+Recursion can be used on lots of different scenarios and sorting is one of them. The algorithm that uses this strategy is called mergesort. This algorithm takes O(n*log n), which can be really fast for large data sources.
+
+It works by re
 
 ### Shellsort
 This stragery is called shellsort after its discover, Donald L. Shell in 1959
@@ -332,6 +334,42 @@ Operations on a binary tree are a bit more complex compared to previous structur
 Note that these estimations are for relatively well balanced trees, if your tree is unbalanced the then the time approaches O(n), as the tree starts resembling more and more a linkedlist. Unbalanced tree can negatively affect many operations. Deciding which one should be root and how you insert items can prevent a tree becoming too unbalanced, the following image shoes one such tree:
 
 ![alt text](./src/main/resources/static/images/unbalanced-tree.png)
+
+### Red-black trees
+As mentioned before, BST have fast insertion, deletion and search times. At first glance they appear ideal, but there is one small problem: a BST can become unbalanced and the time complexity degenerates more and more to O(n) as the unbalance increases. 
+
+If the data is inserted randomly the chance of a tree becoming too unbalanced gets lower, but if the data is inserted is ordered or partially ordered the structure becomes more like a LinkedList:
+
+![alt text](./src/main/resources/static/images/ordered-insertion-on-bst.png)
+
+Even an small unbalancing can affect the times substiantially. On a simple BST this problem can be hard to solve, therefore it's necessary to implement a funcionality to balance the tree. On Red-Black trees this is achieved by checking for a few conditions. Basically, a "color" (or any attribute for that matter) can be added to each node. During insertion or deletion a few rules can be followed and balance can be (mostly) maintained.
+
+The rules are called red-black-rules:
+
+1. A node can be either red or black.
+2. The root node is always black.
+3. If a node is red it's children must be black (the contrary is not necessarily true though).
+4. Every path from the root to a leaf, or to a null child, must have the same number of black nodes.
+
+If an element insertion violates these rules you can use two strategies to fix it:
+
+1. Change the color of a Node.
+2. Perform a rotation.
+
+These operations are useful, but rotations are the most important strategy used by rbtrees to maintain balance. They need to be performed in such a way where the structure of a BST should maintained, so as to preserve the fast operations times.
+
+The book doesn't provide an implementation. I will for sure implement one later, but there are other, more important ones to work with. 
+
+### 2-3-4 Trees
+Another data-structure that can be classified as a tree are 2-3-4 trees. Unlike binary-search trees and red-black trees, 2-3-4 trees can have more than two children. They can also be called <i>multiway trees</i> and they are quite interesting and useful in some situations. 
+
+2-3-4 tress are balanced, like bts and rdt, but they are easier to implement than the latter.
+
+The following image shows a representation of this tree with its multiple children:
+
+![alt text](./src/main/resources/static/images/234-tree.png)
+
+Note that each Node inside a 234-tree can hold three items and have four children. Inside this tree all leaf nodes (nodes that have no children) are always in the same level. 
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.

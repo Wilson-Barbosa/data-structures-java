@@ -1,4 +1,4 @@
-package com.datastructures.myimplementations.trees;
+package com.datastructures.myimplementations.trees.binarysearch;
 
 /**
  * Generic implementation of a Binary Search Tree. It allows for duplicate
@@ -150,14 +150,14 @@ public class BinaryTree<T extends Comparable<T>> {
         } else {
 
             if (element.compareTo(node.getElement()) >= 0) { // check the right
-                
-                if(element.equals(node.getElement())) { // found the item
+
+                if (element.equals(node.getElement())) { // found the item
 
                 } else {
                     traversalDelete(element, node.getRightChild()); // go for the next
                 }
 
-            } else { // 
+            } else { //
 
             }
 
@@ -180,8 +180,9 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     /**
+     * Returns an iterator for this tree.
      * 
-     * @return an itera
+     * @return an iterator
      */
     public Iterator<T> getIterator() {
         return new Iterator<>(this);

@@ -1,16 +1,11 @@
-package com.datastructures.myimplementations.trees;
+package com.datastructures.myimplementations.trees.redblack;
 
-/**
- * Node that goes inside a Binary tree. It has two references, one for each of
- * it's children: right and left
- */
 public class Node<T> {
-
+    
     private T element;
     private Node<T> rightChild;
     private Node<T> leftChild;
-    // private Node<> parent;  <--  It's possible to add a reference for the parent
-    //                              node and this can simplify some operations, but complicate others.
+    private boolean isRed;
 
     public Node(T element) {
         this.element = element;
@@ -22,6 +17,14 @@ public class Node<T> {
 
     public void setElement(T element) {
         this.element = element;
+    }
+
+    public boolean isRed() {
+        return isRed;
+    }
+
+    public void setRed(boolean isRed) {
+        this.isRed = isRed;
     }
 
     public Node<T> getRightChild() {
@@ -40,4 +43,6 @@ public class Node<T> {
         this.leftChild = leftChild;
     }
 
+    
+    
 }

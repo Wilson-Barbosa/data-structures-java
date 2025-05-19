@@ -187,4 +187,57 @@ public class IntSorting {
         return array;
     }
 
+
+    // public static int[] mergeSort(int[] array) {
+
+    //     // if(array.length == 1) { // base case
+    //     //     return array;
+    //     // }
+
+    // }
+
+    public static int[] mergeSortedArrays(int[] a, int[] b) {
+
+        int aIndex = 0, bIndex = 0, cIndex = 0;
+
+        int sizeA = a.length, sizeB = b.length, sizeC = sizeA + sizeB;
+        int[] c = new int[sizeC];
+
+        // compares a and b sequentially until the end of one of them
+        while (aIndex < sizeA && bIndex < sizeB) {
+
+            if (a[aIndex] > b[bIndex]) {
+                c[cIndex] = b[bIndex];
+                bIndex++;
+
+            } else {
+                c[cIndex] = a[aIndex];
+                aIndex++;
+            }
+
+            cIndex++;
+        }
+
+        // then I fill the remainig space in c with item from the largest array
+        if (sizeA > sizeB) {
+
+            while (aIndex < sizeA) {
+                c[cIndex] = a[aIndex];
+                aIndex++;
+                cIndex++;
+            }
+
+        } else {
+
+            while (bIndex < sizeB) {
+                c[cIndex] = b[bIndex];
+                bIndex++;
+                cIndex++;
+            }
+
+        }
+
+        return c;
+    }
+
 }

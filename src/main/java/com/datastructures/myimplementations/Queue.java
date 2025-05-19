@@ -28,7 +28,7 @@ public class Queue<T> {
     }
 
     public T peek(){
-        return list.getLast();
+        return end;
     }
 
 }

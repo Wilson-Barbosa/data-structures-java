@@ -1,4 +1,4 @@
-package com.datastructures.myimplementations.trees;
+package com.datastructures.myimplementations.trees.binarysearch;
 
 /**
  * Iterator that provides consistent access for the elements of a Binary Search
