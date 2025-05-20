@@ -363,13 +363,44 @@ The book doesn't provide an implementation. I will for sure implement one later,
 ### 2-3-4 Trees
 Another data-structure that can be classified as a tree are 2-3-4 trees. Unlike binary-search trees and red-black trees, 2-3-4 trees can have more than two children. They can also be called <i>multiway trees</i> and they are quite interesting and useful in some situations. 
 
-2-3-4 tress are balanced, like bts and rdt, but they are easier to implement than the latter.
+2-3-4 tress are balanced, like bts and rbt, but they are easier to implement than the latter.
 
 The following image shows a representation of this tree with its multiple children:
 
 ![alt text](./src/main/resources/static/images/234-tree.png)
 
 Note that each Node inside a 234-tree can hold three items and have four children. Inside this tree all leaf nodes (nodes that have no children) are always in the same level. 
+
+#### Structure
+For non-leaf nodes there are 3 possibilities:
+
+1. A node with one data item must have two children
+2. A node with two data itens must have three children.
+3. A node with three data itens must have four children.
+
+You can also describe it with the expression `L = D + 1` where L is the number of links a node can have and D is the number of children.
+
+Leaf-nodes don't have children, by definition, but they can have 1 or up 4 items. Empty or nodes are NOT allowed.
+
+Because the nodes inside a 234tree can have up to 4 children, it can also be called <i>multiway tree of order 4</i>.
+
+The following image shows how we can name the Nodes and it's links:
+
+![alt text](./src/main/resources/static/images/nodes-2-3-4-tree.png)
+
+By convention the nomenclature can be described as followed:
+
+* Links are named from left to right as <b>0</b>, <b>1</b>, <b>2</b> and <b>3</b>
+* The itens inside each node are named from left to right as <b>0</b>, <b>1</b> and <b>2</b>. They are organized in ascending order.
+* the node itself can be named as <b>2-node</b>, <b>3-node</b> or <b>4-node</b> depending on how much links/children it has. Remember that leaf-nodes don't have children.
+
+Like a BTS, these characteristics where set so we can insert, search and delete efficient.  
+
+#### Search
+Search on a 234tree works very much like a BST one.
+1. You start in the root node and check each item inside it for a match.
+2. If not found, then you need to determine which child to check next (based on its key).
+3. If you do this and reach a leaf-node then the item does not exist inside the tree.
 
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
