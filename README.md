@@ -402,6 +402,33 @@ Search on a 234tree works very much like a BST one.
 2. If not found, then you need to determine which child to check next (based on its key).
 3. If you do this and reach a leaf-node then the item does not exist inside the tree.
 
+### Hashing
+
+Hash maps or hash tables are a type of data strucutre based on arrays. They are very useful in many different scenarios, providing fast insertion, deletion and search, close to O(1) for a well balanced structure.
+
+To give a possible use case for it let's say you have a list of 20,000 words in a certain language, english for example, but they are not necessarily ordered (although in this example they can be). If you choose an array the best time can be achieved with a binary search, but that would require the items to be ordered, not to mention how you would deal with insertions. If the array is not ordered then the best time for any operation is O(n). In this case, not having an index can be dentrimental. A possible solution is to find a way to transform an object into a number, which in turn can be mapped to a index inside an array, and that's what `hashing` is called. 
+
+Therefore we can define hash tables as a collection of key-value pairs:
+
+1. A key is some data (a number, string or any object) that gets converted (hashed) by some hashing function, that returns an integer, which in turn can be mapped to an index from an array.
+2. The value is the actual item stored inside the collection.
+
+Note that the hash process is deterministic by nature, which means that hashing the same string, for example, will always produce the same number. This is crucial, because it's the deterministic approach that allows items to be inserted and searched after. Note that this is true only if you use the same hashing function for the same strings in this example.
+
+#### Collisions
+Now, the same object is always hashed to the same number, but a different object may be hashed to the same location inside the array, a process known as collisions, which are inevitable using the current strategy.
+
+1. <b>Separate Chaining: </b> each item within the array is another type of collection, a Tree or List and items mapped to the same key are placed inside it sequentially. Note that this approach can impact performance, dependeding on where they are placed and how the iteration is performed. The Java Collections Framework in fact uses a separate chaining strategy, with a LinkedList up to 8 items and Balanced Red-Black tree for more than 8. The following image shows an example using Lists:
+
+![alt text](./src/main/resources/static/images/separate-chaining-hash-table.png)
+
+2. <b>Open addressing: </b> the array stores the directly itself and, if a collision happens, say at index 3, the algorithm tries to insert it in other positions, like 4, 5 or 6 until it finds a free space. How the algorithm decides which positions to look for is matter of strategy. The book proposes three methods: <i>linear probing</i>, <i>quadratic probing</i> and <i>double hashing</i>.
+
+* <b>Linear probing: </b> upon a collision the algorithm goes sequentially for next indexes, until it finds the an empty one. If 3 is occupied it tries 4, 5, 6, 7 ... n. That's why it's called linear. Because items are inserted sequentially there's a chance they can group together if mapped to close indexes, causing the creating of clusters (called primary clustering), which grows exponentially.
+* <b>Quadratic probing: </b> to avoid primary clustering another type of probing can be done, which consists of increasing the index in quadratic intervals. This can fix primary clustering, but can also produce another type, called secondary clustering, because the probing always goes to the same indexes: 1, 4, 9, 16...
+* <b>Double hashing: </b> to solve both options double hashing can be used, where the index is hashed a second time, using a different hash function.
+
+
 ## The java collections framework
 The concept of performance and complexity is especially important when working with `data collections`. This term is very appropriate within the Java world within the `Collections Framework`. On itself this is "just" a collections of classes, interfaces and algorithms to help developers program and work with sets of data in a standardlized and efficent manner.
 

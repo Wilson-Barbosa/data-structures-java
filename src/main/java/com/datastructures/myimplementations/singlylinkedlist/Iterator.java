@@ -12,7 +12,7 @@ public class Iterator<T> {
     private SinglyLinkedList<T> list;
 
     /**
-     * Creates a new Iterator instance for the class passed as an argument
+     * Creates a new Iterator instance for the instance passed as an argument
      * and points to the first element of the list.
      */
     public Iterator(SinglyLinkedList<T> list) {
@@ -23,8 +23,8 @@ public class Iterator<T> {
     /**
      * Returns the reference that the iterator currently holds
      */
-    public Link<T> getCurrent() {
-        return current;
+    public T getCurrent() {
+        return current.getElement();
     }
 
     /** Makes the current Iterator point to the first element inside the list */
@@ -36,10 +36,10 @@ public class Iterator<T> {
      * Moves the Iterator to point to the next Link in the list. This is the
      * method used to effectively traverse the list.
      */
-    public Link<T> nextLink() {
+    public T nextLink() {
         previous = current;
         current = current.getNext();
-        return current;
+        return current.getElement();
     }
 
     /**
